@@ -1,7 +1,7 @@
 name = "RemoveDateInformation"
 uuid = "7c3ad74f-ee21-4e60-a1ba-ecae6f0cff80"
 authors = ["Dilum Aluthge", "contributors"]
-version = "0.1.0-DEV"
+version = "0.1.0"
 
 [deps]
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
