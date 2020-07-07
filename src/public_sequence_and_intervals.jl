@@ -33,7 +33,7 @@ julia> dates = [
  2000-01-02T01:02:03
 
 julia> sequence, intervals = sequence_and_intervals(dates; round_to = Day(1))
-([1, 5, 4, 3, 2], [Day(0), Day(31), Day(4), Day(1), Day(1)])
+([1, 5, 4, 3, 2], Dates.Day[0 days, 31 days, 4 days, 1 day, 1 day])
 
 julia> sequence
 5-element Array{Int64,1}:
@@ -93,7 +93,7 @@ julia> dates = [
  2000-01-02T01:02:03-05:00
 
 julia> sequence, intervals = sequence_and_intervals(dates; round_to = Day(1))
-([1, 5, 4, 3, 2], [Day(0), Day(31), Day(4), Day(1), Day(1)])
+([1, 5, 4, 3, 2], Dates.Day[0 days, 31 days, 4 days, 1 day, 1 day])
 
 julia> sequence
 5-element Array{Int64,1}:
