@@ -1,2 +1,2 @@
-function sequence_and_intervals end
+function datetime_intervals end
 function sequence_and_random_date_shift end
