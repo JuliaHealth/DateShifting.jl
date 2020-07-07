@@ -20,7 +20,7 @@ Test.@testset "DateShifting.jl" begin
         Test.@test DateShifting._draw_sample(Random.GLOBAL_RNG, Dates.Day, nothing) == Dates.Day(0)
     end
 
-    Test.@testset "public_sequence_and_intervals.jl" begin
+    Test.@testset "intervals.jl" begin
         datetime_list = [
             Dates.DateTime("1900-01-01T00:00:00"),
             Dates.DateTime("1901-01-01T00:00:00"),
@@ -50,8 +50,8 @@ Test.@testset "DateShifting.jl" begin
 
         for round_to_period in keys(expected_intervals_round_to)
             for input in Any[datetime_list, zoneddatetime_list]
-                observed_sequence, observed_intervals = DateShifting.sequence_and_intervals(input;
-                                                                                            round_to = round_to_period)
+                observed_sequence, observed_intervals = DateShifting.datetime_intervals(input;
+                                                                                        round_to = round_to_period)
                 Test.@test observed_sequence == expected_sequence
                 Test.@test observed_intervals == expected_intervals_round_to[round_to_period]
             end

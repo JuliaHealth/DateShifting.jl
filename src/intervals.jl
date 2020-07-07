@@ -2,8 +2,8 @@ import Dates
 import TimeZones
 
 """
-    sequence_and_intervals(input_dt_list::Vector{Dates.DateTime};
-                           round_to::Dates.Period)
+    datetime_intervals(input_dt_list::Vector{Dates.DateTime};
+                       round_to::Dates.Period)
 
 ## Arguments
 - `input_dt_list::Vector{Dates.DateTime}`: A vector of `DateTime`s.
@@ -32,7 +32,7 @@ julia> dates = [
  2000-01-02T04:05:06
  2000-01-02T01:02:03
 
-julia> sequence, intervals = sequence_and_intervals(dates; round_to = Day(1))
+julia> sequence, intervals = datetime_intervals(dates; round_to = Day(1))
 ([1, 5, 4, 3, 2], Dates.Day[0 days, 31 days, 4 days, 1 day, 1 day])
 
 julia> sequence
@@ -52,15 +52,15 @@ julia> intervals
  1 day
 ```
 """
-function sequence_and_intervals(input_dt_list::Vector{Dates.DateTime};
-                                round_to::Dates.Period)
+function datetime_intervals(input_dt_list::Vector{Dates.DateTime};
+                            round_to::Dates.Period)
     input_zdt_list = [TimeZones.ZonedDateTime(x, Dates.TimeZone("UTC")) for x in input_dt_list]
-    return sequence_and_intervals(input_zdt_list; round_to = round_to)
+    return datetime_intervals(input_zdt_list; round_to = round_to)
 end
 
 """
-    sequence_and_intervals(input_zdt_list::Vector{TimeZones.ZonedDateTime},
-                           round_to::Dates.Period)
+    datetime_intervals(input_zdt_list::Vector{TimeZones.ZonedDateTime};
+                       round_to::Dates.Period)
 
 ## Arguments
 - `input_zdt_list::Vector{TimeZones.ZonedDateTime}`: A vector of `ZonedDateTime`s.
@@ -92,7 +92,7 @@ julia> dates = [
  2000-01-02T03:05:06-06:00
  2000-01-02T01:02:03-05:00
 
-julia> sequence, intervals = sequence_and_intervals(dates; round_to = Day(1))
+julia> sequence, intervals = datetime_intervals(dates; round_to = Day(1))
 ([1, 5, 4, 3, 2], Dates.Day[0 days, 31 days, 4 days, 1 day, 1 day])
 
 julia> sequence
@@ -112,8 +112,8 @@ julia> intervals
  1 day
 ```
 """
-function sequence_and_intervals(input_zdt_list::Vector{TimeZones.ZonedDateTime};
-                                round_to::Dates.Period)
+function datetime_intervals(input_zdt_list::Vector{TimeZones.ZonedDateTime};
+                            round_to::Dates.Period)
     sequence = sortperm(input_zdt_list)
 
     value, index_of_input_start_zoned_datetime = findmin(sequence)

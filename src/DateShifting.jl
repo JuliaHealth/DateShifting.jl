@@ -1,6 +1,6 @@
 module DateShifting
 
-export sequence_and_intervals
+export datetime_intervals
 export sequence_and_random_date_shift
 
 include("types.jl")
