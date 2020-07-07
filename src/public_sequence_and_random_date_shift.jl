@@ -66,7 +66,7 @@ julia> sequence, shifted_dates = sequence_and_random_date_shift(
            microsecond = DiscreteUniform(-1000, 1000),
            nanosecond = DiscreteUniform(-1000, 1000),
        )
-([1, 5, 4, 3, 2], [ZonedDateTime(2000, 1, 16, tz"America/New_York"), ZonedDateTime(2000, 2, 16, tz"America/New_York"), ZonedDateTime(2000, 1, 20, tz"America/New_York"), ZonedDateTime(2000, 1, 18, tz"America/New_York"), ZonedDateTime(2000, 1, 18, tz"America/New_York")])
+([1, 5, 4, 3, 2], TimeZones.ZonedDateTime[ZonedDateTime(1999, 12, 5, tz"America/New_York"), ZonedDateTime(2000, 1, 5, tz"America/New_York"), ZonedDateTime(1999, 12, 9, tz"America/New_York"), ZonedDateTime(1999, 12, 6, tz"America/New_York"), ZonedDateTime(1999, 12, 6, tz"America/New_York")])
 
 julia> sequence
 5-element Array{Int64,1}:
@@ -78,11 +78,11 @@ julia> sequence
 
 julia> shifted_dates
 5-element Array{ZonedDateTime,1}:
- 2000-01-16T00:00:00-05:00
- 2000-02-16T00:00:00-05:00
- 2000-01-20T00:00:00-05:00
- 2000-01-18T00:00:00-05:00
- 2000-01-18T00:00:00-05:00
+ 1999-12-05T00:00:00-05:00
+ 2000-01-05T00:00:00-05:00
+ 1999-12-09T00:00:00-05:00
+ 1999-12-06T00:00:00-05:00
+ 1999-12-06T00:00:00-05:00
 ```
 """
 function sequence_and_random_date_shift(rng::Random.AbstractRNG,
@@ -143,7 +143,7 @@ julia> sequence, shifted_dates = sequence_and_random_date_shift(
            microsecond = DiscreteUniform(-1000, 1000),
            nanosecond = DiscreteUniform(-1000, 1000),
        )
-([1, 5, 4, 3, 2], [ZonedDateTime(2000, 1, 16, tz"America/New_York"), ZonedDateTime(2000, 2, 16, tz"America/New_York"), ZonedDateTime(2000, 1, 20, tz"America/New_York"), ZonedDateTime(2000, 1, 18, tz"America/New_York"), ZonedDateTime(2000, 1, 18, tz"America/New_York")])
+([1, 5, 4, 3, 2], TimeZones.ZonedDateTime[ZonedDateTime(1999, 12, 5, tz"America/New_York"), ZonedDateTime(2000, 1, 5, tz"America/New_York"), ZonedDateTime(1999, 12, 9, tz"America/New_York"), ZonedDateTime(1999, 12, 6, tz"America/New_York"), ZonedDateTime(1999, 12, 6, tz"America/New_York")])
 
 julia> sequence
 5-element Array{Int64,1}:
@@ -155,11 +155,11 @@ julia> sequence
 
 julia> shifted_dates
 5-element Array{ZonedDateTime,1}:
- 2000-01-16T00:00:00-05:00
- 2000-02-16T00:00:00-05:00
- 2000-01-20T00:00:00-05:00
- 2000-01-18T00:00:00-05:00
- 2000-01-18T00:00:00-05:00
+ 1999-12-05T00:00:00-05:00
+ 2000-01-05T00:00:00-05:00
+ 1999-12-09T00:00:00-05:00
+ 1999-12-06T00:00:00-05:00
+ 1999-12-06T00:00:00-05:00
 ```
 """
 function sequence_and_random_date_shift(rng::Random.AbstractRNG,
