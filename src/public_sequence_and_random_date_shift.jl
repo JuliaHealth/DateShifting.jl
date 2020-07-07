@@ -4,9 +4,7 @@ import Random
 import TimeZones
 
 const _kwargs_docstring_for_sequence_and_random_date_shift = """
-## Keyword Arguments
 - `round_to::Dates.Period`: Resolution to which all intervals should be rounded.
-- `time_zone::Dates.TimeZone`: Time zone to which all output dates should be converted.
 - `day::::Union{Distributions.Sampleable, Nothing}`: Probability distribution from which the `Day` shift amount will be sampled.
 - `hour::::Union{Distributions.Sampleable, Nothing}`: Probability distribution from which the `Hour` shift amount will be sampled.
 - `minute::::Union{Distributions.Sampleable, Nothing}`: Probability distribution from which the `Minute` shift amount will be sampled.
@@ -19,11 +17,14 @@ const _kwargs_docstring_for_sequence_and_random_date_shift = """
 """
     sequence_and_random_date_shift(rng::Random.AbstractRNG,
                                    input_dt_list::Vector{Dates.DateTime};
-                                   round_to::Dates.Period)
+                                   kwargs...)
 
 ## Arguments
+- `rng::Random.AbstractRNG`: Random number generator that will be used for sampling.
 - `input_dt_list::Vector{Dates.DateTime}`: A vector of `DateTime`s.
 
+## Keyword Arguments
+- `time_zone::Dates.TimeZone`: Time zone for the input dates.
 $(_kwargs_docstring_for_sequence_and_random_date_shift)
 
 ## Example
@@ -95,12 +96,15 @@ end
 
 """
     sequence_and_random_date_shift(rng::Random.AbstractRNG,
-                                   input_zdt_list::Vector{TimeZones.ZonedDateTime},
-                                   round_to::Dates.Period)
+                                   input_zdt_list::Vector{TimeZones.ZonedDateTime};
+                                   kwargs...)
 
 ## Arguments
+- `rng::Random.AbstractRNG`: Random number generator that will be used for sampling.
 - `input_zdt_list::Vector{TimeZones.ZonedDateTime}`: A vector of `ZonedDateTime`s.
 
+## Keyword Arguments
+- `time_zone::Dates.TimeZone`: Time zone to which all dates should be converted.
 $(_kwargs_docstring_for_sequence_and_random_date_shift)
 
 ## Example
