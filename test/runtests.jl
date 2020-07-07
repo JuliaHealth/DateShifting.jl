@@ -1,17 +1,17 @@
 import Dates
-import RemoveDateInformation
+import DateShifting
 import TimeZones
 import Test
 
-Test.@testset "RemoveDateInformation.jl" begin
+Test.@testset "DateShifting.jl" begin
     Test.@testset "assert.jl" begin
-        Test.@test nothing == Test.@test_nowarn RemoveDateInformation.always_assert(1 == 1)
-        Test.@test_throws RemoveDateInformation.AlwaysAssertionError RemoveDateInformation.always_assert(1 == 2)
+        Test.@test nothing == Test.@test_nowarn DateShifting.always_assert(1 == 1)
+        Test.@test_throws DateShifting.AlwaysAssertionError DateShifting.always_assert(1 == 2)
     end
 
     Test.@testset "compute_interval_nonrounded.jl" begin
-        Test.@test RemoveDateInformation._compute_interval_nonrounded(Dates.DateTime("2000-01-01"), Dates.DateTime("2000-01-02")) == Dates.Day(1)
-        Test.@test_throws ArgumentError RemoveDateInformation._compute_interval_nonrounded(Dates.DateTime("2000-01-02"), Dates.DateTime("2000-01-01"))
+        Test.@test DateShifting._compute_interval_nonrounded(Dates.DateTime("2000-01-01"), Dates.DateTime("2000-01-02")) == Dates.Day(1)
+        Test.@test_throws ArgumentError DateShifting._compute_interval_nonrounded(Dates.DateTime("2000-01-02"), Dates.DateTime("2000-01-01"))
     end
 
     Test.@testset "sequence_and_intervals.jl" begin
@@ -44,7 +44,7 @@ Test.@testset "RemoveDateInformation.jl" begin
 
         for round_to_period in keys(expected_intervals_round_to)
             for input in Any[datetime_list, zoneddatetime_list]
-                observed_sequence, observed_intervals = RemoveDateInformation.sequence_and_intervals(input, round_to_period)
+                observed_sequence, observed_intervals = DateShifting.sequence_and_intervals(input, round_to_period)
                 Test.@test observed_sequence == expected_sequence
                 Test.@test observed_intervals == expected_intervals_round_to[round_to_period]
             end

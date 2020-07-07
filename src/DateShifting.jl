@@ -1,4 +1,4 @@
-module RemoveDateInformation
+module DateShifting
 
 export sequence_and_intervals
 

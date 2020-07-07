@@ -1,14 +1,14 @@
-using RemoveDateInformation
+using DateShifting
 using Documenter
 
 makedocs(;
-    modules=[RemoveDateInformation],
+    modules=[DateShifting],
     authors="Dilum Aluthge, contributors",
-    repo="https://github.com/JuliaHealth/RemoveDateInformation.jl/blob/{commit}{path}#L{line}",
-    sitename="RemoveDateInformation.jl",
+    repo="https://github.com/JuliaHealth/DateShifting.jl/blob/{commit}{path}#L{line}",
+    sitename="DateShifting.jl",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
-        canonical="https://JuliaHealth.github.io/RemoveDateInformation.jl",
+        canonical="https://JuliaHealth.github.io/DateShifting.jl",
         assets=String[],
     ),
     pages=[
@@ -18,5 +18,5 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/JuliaHealth/RemoveDateInformation.jl",
+    repo="github.com/JuliaHealth/DateShifting.jl",
 )

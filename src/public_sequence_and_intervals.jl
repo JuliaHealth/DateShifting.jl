@@ -11,7 +11,7 @@ import TimeZones
 ```jldoctest
 julia> using Dates
 
-julia> using RemoveDateInformation
+julia> using DateShifting
 
 julia> dates = [
            DateTime("2000-01-01T00:00:00"),
@@ -67,7 +67,7 @@ end
 ```jldoctest
 julia> using Dates
 
-julia> using RemoveDateInformation
+julia> using DateShifting
 
 julia> using TimeZones
 
