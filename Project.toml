@@ -1,6 +1,6 @@
 name = "DateShifting"
 uuid = "7c3ad74f-ee21-4e60-a1ba-ecae6f0cff80"
-authors = ["Dilum Aluthge", "contributors"]
+authors = ["Dilum Aluthge", "JuliaHealth", "contributors"]
 version = "0.1.0"
 
 [deps]
