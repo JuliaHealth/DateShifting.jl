@@ -1,12 +1,12 @@
 ```@meta
-CurrentModule = RemoveDateInformation
+CurrentModule = DateShifting
 ```
 
-# RemoveDateInformation
+# DateShifting
 
 ```@index
 ```
 
 ```@autodocs
-Modules = [RemoveDateInformation]
+Modules = [DateShifting]
 ```

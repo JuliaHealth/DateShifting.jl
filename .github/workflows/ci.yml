@@ -62,8 +62,8 @@ jobs:
       - run: |
           julia --project=docs -e '
             import Documenter
-            import RemoveDateInformation
-            Documenter.doctest(RemoveDateInformation)'
+            import DateShifting
+            Documenter.doctest(DateShifting)'
       - run: julia --project=docs docs/make.jl
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
