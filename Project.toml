@@ -10,7 +10,7 @@ Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 TimeZones = "f269a46b-ccf7-5d73-abea-4c690281aa53"
 
 [compat]
-Distributions = "0.23"
+Distributions = "0.23, 0.24"
 TimeZones = "1"
 julia = "1.3"
 
